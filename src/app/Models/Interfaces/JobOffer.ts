@@ -1,4 +1,4 @@
-import { ContractType } from "./Enum/ContractType";
+import { ContractType } from "../Enum/ContractType";
 import { Company } from "./Company";
 
 export interface JobOffer {

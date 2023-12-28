@@ -1,4 +1,4 @@
-import { Role } from "./Enum/Role";
+import { Role } from "../Enum/Role";
 export interface Admin {
     id?: number;
     name: string;

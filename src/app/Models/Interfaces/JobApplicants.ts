@@ -6,4 +6,4 @@ export interface JobApplicants {
     date: Date;
     jobOffer: JobOffer;
     applicant: Applicant;
-  }
+  } 
