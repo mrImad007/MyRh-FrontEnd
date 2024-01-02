@@ -8,20 +8,20 @@ import { Company } from '../../Models/Interfaces/Company';
 })
 export class CompanyService {
 
-  constructor(private http: HttpClient) { }
-
   private endPoint =  'http://localhost:8080/api/companies';
 
-  getAllCompanies(): Observable<Company>{
-    return this.http.get<Company>(this.endPoint);
+  constructor(private http: HttpClient) { }
+
+  getAllCompanies(): Observable<Company[]> {
+    return this.http.get<Company[]>(this.endPoint);
   }
 
-  getCompany(companyName : string): Observable<Company>{
+  getCompany(companyName: string): Observable<Company[]> {
     const url = `${this.endPoint}/${companyName}`;
-    return this.http.get<Company>(url);
+    return this.http.get<Company[]>(url);
   }
   
-  addNewCompany(newCompany : Company){
-    return this.http.post<Company>(this.endPoint, newCompany).subscribe();
-    }
+  addNewCompany(newCompany: Company): Observable<Company> {
+    return this.http.post<Company>(this.endPoint, newCompany);
+  }
 }

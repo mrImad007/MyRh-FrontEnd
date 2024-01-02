@@ -1,0 +1,61 @@
+<div class="container" style="padding: 20px;">
+  <div *ngFor="let offer of offers; let i = index" class="w-80 bg-white shadow rounded" style="border-radius: 10px; margin-bottom: 20px;">
+    <!-- Offer Image -->
+    <div class="h-48 w-full bg-gray-200 flex flex-col justify-between p-4 bg-cover bg-center"
+      [style.background-image]="'url(' + offer.company.logo + ')'"
+      style="border-radius: 10px;">
+      <div>
+        <span class="uppercase text-xs bg-green-50 p-0.5 border-green-500 border rounded text-green-700 font-medium select-none">
+          Available <!-- Assuming availability information is not present in the offer object -->
+        </span>
+      </div>
+    </div>
+    
+    <!-- Offer Information -->
+    <div class="p-4 flex flex-col items-center">
+      <p class="text-gray-400 font-light text-xs text-center">{{ offer.company.name }}</p>
+      <h1 class="text-gray-800 text-center mt-1">{{ offer.title }}</h1>
+      <p class="text-center text-gray-800 mt-1">{{ offer.location }}</p>
+      <p class="text-center text-gray-800 mt-1">Contrat : {{ offer.contractType }}</p>
+      <p class="text-center text-gray-800 mt-1">{{ offer.salary }} MAD/Mois</p><br/>
+
+      <app-popup name="Easy Apply" color="blue" title="Create an application">
+        <form [formGroup]="applicationForms[i]" (ngSubmit)="onSubmit(i)" class="mt-4">
+          <div class="form-group mb-4">
+            <label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
+            <input type="text" id="name" formControlName="name" name="name" required
+              class="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+          </div>
+        
+          <div class="form-group mb-4">
+            <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
+            <input type="email" id="email" name="email" formControlName="email" required
+              class="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+          </div>
+        
+          <div class="form-group mb-4">
+            <label for="phone" class="block text-sm font-medium text-gray-700">Phone:</label>
+            <input type="number" id="phone" name="phone" formControlName="phone" required
+              class="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+          </div>
+        
+          <div class="form-group mb-4">
+            <label for="resume" class="block text-sm font-medium text-gray-700">Upload Resume:</label>
+            <input type="file" id="resume" name="resume" (change)="onFileSelected($event, i)"
+              class="mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300">
+          </div>
+        
+          <div class="form-group mb-4">
+            <label for="id" class="block text-sm font-medium text-gray-700">Company ID:</label>
+            <input type="hidden" id="id" name="id" [value]="offer.company.id" formControlName="id" required>
+            <p>{{ offer.company.id }}</p>
+          </div>
+        
+          <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:border-blue-300">
+            Submit
+          </button>
+        </form>
+      </app-popup>
+    </div>
+  </div>
+</div>

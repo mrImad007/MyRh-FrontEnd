@@ -11,12 +11,12 @@ export class JobOfferService {
 
   private endPoint = 'http://localhost:8080/api/offers';
 
-  getAllOffers(): Observable<JobOffer>{
-    return this.http.get<JobOffer>(this.endPoint);
+  getAllOffers(): Observable<JobOffer[]>{
+    return this.http.get<JobOffer[]>(this.endPoint);
   }
 
-  getOfferByTitle(title: string): Observable<JobOffer>{
+  getOfferByTitle(title: string): Observable<JobOffer[]>{
     const singleOfferEndPoint = `${this.endPoint}/${title}`;
-    return this.http.get<JobOffer>(singleOfferEndPoint);
+    return this.http.get<JobOffer[]>(singleOfferEndPoint);
   }
 }

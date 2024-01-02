@@ -17,7 +17,7 @@ export class JobApplicantService {
     return this.http.get<JobApplicants>(applicationndPoint);
   }
 
-  createApplication(requestBody: {applicant_id: number, jobOffer_id: number}): Observable<JobApplicants>{
+  createApplication(requestBody: {applicant_id: number, jobOffer_id: number, name: string, email : string, phone: number}): Observable<JobApplicants>{
     return this.http.post<JobApplicants>(this.endPoint, requestBody);
   }
 }
