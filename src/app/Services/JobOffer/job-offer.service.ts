@@ -19,4 +19,9 @@ export class JobOfferService {
     const singleOfferEndPoint = `${this.endPoint}/${title}`;
     return this.http.get<JobOffer[]>(singleOfferEndPoint);
   }
+
+  getOfferByCompany(company: string): Observable<JobOffer[]>{
+    const singleOfferEndPoint = `${this.endPoint}/company/${company}`;
+    return this.http.get<JobOffer[]>(singleOfferEndPoint);
+  }
 }

@@ -3,12 +3,11 @@ import { JobOffer } from '../../Models/Interfaces/JobOffer';
 import { JobOfferService } from '../../Services/JobOffer/job-offer.service';
 import { CommonModule } from '@angular/common';
 import { PopupComponent } from "../popup/popup.component";
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { JobApplicantService } from '../../Services/JobApplicant/job-applicant.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-card',
@@ -19,7 +18,7 @@ import Swal from 'sweetalert2';
 })
 export class CardComponent implements OnInit {
 
-  constructor(private jobOffer: JobOfferService, private formBuilder: FormBuilder,private jobApplicantService: JobApplicantService) { }
+  constructor(private router: Router,private jobOffer: JobOfferService, private formBuilder: FormBuilder,private jobApplicantService: JobApplicantService) { }
 
   public offers: JobOffer[] = [];
   public applicationForms: FormGroup[] = [];
@@ -84,6 +83,7 @@ export class CardComponent implements OnInit {
           icon: 'success',
           confirmButtonText: 'OK',
         });
+        this.router.navigate([''])
       },
       (error) => {
         // Handle error

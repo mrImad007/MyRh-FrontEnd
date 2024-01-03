@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Company } from '../../Models/Interfaces/Company';
+import { log } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,11 @@ export class CompanyService {
   
   addNewCompany(newCompany: Company): Observable<Company> {
     return this.http.post<Company>(this.endPoint, newCompany);
+  }
+
+  authentication(requestBody: {email: string, password: string}): Observable<Company>{
+    console.log(requestBody);
+    const url = `${this.endPoint}/auth`;
+    return this.http.post<Company>(url, requestBody);
   }
 }

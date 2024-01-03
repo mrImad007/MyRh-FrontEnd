@@ -20,4 +20,9 @@ export class JobApplicantService {
   createApplication(requestBody: {applicant_id: number, jobOffer_id: number, name: string, email : string, phone: number}): Observable<JobApplicants>{
     return this.http.post<JobApplicants>(this.endPoint, requestBody);
   }
+
+  findApplicationsByJobOffer(jobOffer_id: number): Observable<JobApplicants[]>{
+    const singleApplicationEndPoint = `${this.endPoint}/${jobOffer_id}`;
+    return this.http.get<JobApplicants[]>(singleApplicationEndPoint);
+  }
 }

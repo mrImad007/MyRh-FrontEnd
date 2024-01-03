@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<br /><br />
+<main>
+  <h1 class="text-center">Applications and Details</h1>
+  <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
+    <div
+      class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg"
+    >
+      <table class="min-w-full">
+        <thead>
+          <tr>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500 tracking-wider">
+              Application ID
+            </th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
+              Offer Title
+            </th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
+              Applicant Name
+            </th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
+              Applicant Email
+            </th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
+              Applicant Number
+            </th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
+              Status
+            </th>
+            <th class="px-6 py-3 border-b-2 border-gray-300 text-left text-sm leading-4 text-blue-500 tracking-wider">
+              Application Date
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          <tr *ngFor="let application of applications">
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              {{ application.id }}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              {{ application.jobOffer.title }}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              {{ application.applicant.name }}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              {{ application.applicant.email }}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              {{ application.applicant.phone }}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              {{ application.status }}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-500">
+              {{ application.date }}
+            </td>
+          </tr>
+          <tr *ngIf="applications==null">
+            No applications
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+<app-footer></app-footer>
