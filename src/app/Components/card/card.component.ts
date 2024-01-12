@@ -33,8 +33,7 @@ export class CardComponent implements OnInit {
     this.jobOffer.getAllOffers().subscribe(
       (offers: JobOffer[]) => {
         this.offers = offers;
-        console.log(this.offers);
-        console.log(this.applicationForms);
+        
       },
       (error) => {
         console.error('Error fetching offers:', error);
@@ -42,14 +41,7 @@ export class CardComponent implements OnInit {
     );
   }
 
-  // PopUp  ==================================
-  // formData = {
-  //   name: '',
-  //   email: '',
-  //   phone: '',
-  //   resume: null,
-  //   id: 0,
-  // };
+
 
   private initializeForms() {
     this.applicationForms = this.offers.map((offer) => {
@@ -102,5 +94,4 @@ export class CardComponent implements OnInit {
     this.applicationForms[index].get('resume')?.setValue(event.target.files[0]);
   }
   
- // PopUp  ==================================
 }
