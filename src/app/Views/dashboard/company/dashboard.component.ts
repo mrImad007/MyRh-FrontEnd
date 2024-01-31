@@ -1,11 +1,11 @@
-import { JobOfferService } from './../../Services/JobOffer/job-offer.service';
+import { JobOfferService } from '../../../Services/JobOffer/job-offer.service';
 import { Component, OnInit } from '@angular/core';
-import { NavbarComponent } from "../../Components/navbar/navbar.component";
-import { FooterComponent } from "../../Components/footer/footer.component";
-import { TableComponent } from "../../Components/table/table.component";
-import { JobOffer } from '../../Models/Interfaces/JobOffer';
+import { NavbarComponent } from "../../../Components/navbar/navbar.component";
+import { FooterComponent } from "../../../Components/footer/footer.component";
+import { TableComponent } from "../../../Components/table/table.component";
+import { JobOffer } from '../../../Models/Interfaces/JobOffer';
 import { ActivatedRoute } from '@angular/router';
-import { Company } from '../../Models/Interfaces/Company';
+import { Company } from '../../../Models/Interfaces/Company';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 

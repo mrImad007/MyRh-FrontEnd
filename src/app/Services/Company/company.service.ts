@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Company } from '../../Models/Interfaces/Company';
-import { log } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +9,7 @@ import { log } from 'console';
 export class CompanyService {
 
   private endPoint =  'http://localhost:8080/api/companies';
+  
 
   constructor(private http: HttpClient) { }
 

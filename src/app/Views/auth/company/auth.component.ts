@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
-import { Company } from './../../Models/Interfaces/Company';
-import { CompanyService } from './../../Services/Company/company.service';
+import { Company } from '../../../Models/Interfaces/Company';
+import { CompanyService } from '../../../Services/Company/company.service';
 import { Component, OnInit} from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -36,7 +36,6 @@ export class AuthComponent implements OnInit{
         password
       } = this.authForm.value;
 
-      console.log(this.authForm.value);
 
       this.companyService.authentication(this.authForm.value).subscribe(
         (company: Company) => {
